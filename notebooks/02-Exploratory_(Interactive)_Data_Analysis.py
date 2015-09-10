@@ -1,8 +1,7 @@
 
 # coding: utf-8
 
-# 
-# # Dimentionality Reduction
+# # Dimensionality Reduction
 
 # ## Modified example
 # 
