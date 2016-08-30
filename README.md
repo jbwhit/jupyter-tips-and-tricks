@@ -1,6 +1,6 @@
 # Jupyter Notebook Tips and Tricks
 
-A few (hopefully) useful tips and tricks to using the Jupyter Notebook with an eye to pragmatic usage. **This is not, in any way, an exhaustive demostration of the features of the Jupyter notebook**. Further, you can go through these notebooks on your own, but I usually demonstrate using them and give lots of information verbally.
+A few (hopefully) useful tips and tricks to using the Jupyter Notebook with an eye to pragmatic usage. **This is not, in any way, an exhaustive demonstration of the features of the Jupyter notebook**. Further, you can go through these notebooks on your own, but I usually demonstrate using them and give lots of information verbally.
 
 If you have any suggestions, edits, or corrections, please open an issue or let me know some other way. Best of luck!
 
@@ -22,6 +22,8 @@ source ~/.bashrc
 
 ```bash
 conda config --add channels conda-forge
+
+conda update conda
 
 packages='astropy
 ipywidgets
@@ -45,8 +47,9 @@ statsmodels
 
 conda create --name py2 python=2 $packages -y
 conda create --name py3 python=3 $packages -y
-conda create -n rkernel -c r r-irkernel r-recommended r-essentials rpy2 $packages -y
-
+# next 2 semi-experimental
+conda create --name rpy3 -c r r-irkernel r-recommended r-essentials rpy2 python=3 $packages -y
+conda create --name rpy2 -c r r-irkernel r-recommended r-essentials rpy2 python=2 $packages -y
 # To run: 
 source activate py2
 ```
