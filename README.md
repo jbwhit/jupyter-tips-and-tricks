@@ -21,12 +21,12 @@ source ~/.bashrc
 ### Create a few conda environments
 
 ```bash
-conda config --add channels conda-forge
 
 conda update conda
+# conda-forge not yet ready for prime-time
+# conda config --add channels conda-forge
 
-packages='astropy
-ipywidgets
+packages='ipywidgets
 jupyter
 jupyter_contrib_nbextensions
 jupyter_nbextensions_configurator
@@ -48,10 +48,12 @@ statsmodels
 conda create --name py2 python=2 $packages -y
 conda create --name py3 python=3 $packages -y
 # next 2 semi-experimental
-conda create --name rpy3 -c r r-irkernel r-recommended r-essentials rpy2 python=3 $packages -y
-conda create --name rpy2 -c r r-irkernel r-recommended r-essentials rpy2 python=2 $packages -y
+conda create --name rpy3 -c r r r-irkernel r-recommended r-essentials rpy2 python=3 $packages -y
+conda create --name rpy2 -c r r r-irkernel r-recommended r-essentials rpy2 python=2 $packages -y
 # To run: 
 source activate py2
+
+conda create --name problem --channel r r r-irkernel r-recommended r-essentials rpy2 python=3 anaconda jupyter_nbextensions_configurator -y
 ```
 
 ### Fancy unnecessary stuff
