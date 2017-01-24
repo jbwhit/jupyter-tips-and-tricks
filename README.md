@@ -6,8 +6,6 @@ If you have any suggestions, edits, or corrections, please open an issue or let 
 
 ## Assuming you are on a Mac
 
-### Install [homebrew](http://brew.sh/) (if you haven't already)
-
 ### Install Miniconda (if you haven't already)
 
 ```bash
@@ -23,37 +21,35 @@ source ~/.bashrc
 ```bash
 
 conda update conda
-# conda-forge not yet ready for prime-time
-# conda config --add channels conda-forge
+# This adds the conda-forge channel below the defaults library
+conda config --append channels conda-forge
 
-packages='ipywidgets
-jupyter
+packages='jupyter
+notebook
+ipywidgets
 jupyter_contrib_nbextensions
-jupyter_nbextensions_configurator
+pyparsing
 matplotlib
 mkl
 mpld3
-notebook
-numpy
-pandas
+seaborn
 pip
-pymc
-pyparsing
+pandas
 scikit-learn
 scipy
-seaborn
+numpy
 statsmodels
-'
+tqdm'
 
-conda create --name py2 python=2 $packages -y
-conda create --name py3 python=3 $packages -y
-# next 2 semi-experimental
-conda create --name rpy3 -c r r r-irkernel r-recommended r-essentials rpy2 python=3 $packages -y
-conda create --name rpy2 -c r r r-irkernel r-recommended r-essentials rpy2 python=2 $packages -y
-# To run: 
-source activate py2
+conda create -q --name py2 python=2 $packages
+# Only including r in py3 because conda install r and py2 don't work.
+# If you need it, force
+conda create -q --name py3 --channel r r r-irkernel r-recommended r-essentials rpy2 python=3 $packages -y
 
-conda create --name problem --channel r r r-irkernel r-recommended r-essentials rpy2 python=3 anaconda jupyter_nbextensions_configurator -y
+source activate py3
+# Install the matplotlib style library
+# https://github.com/ipython/ipython/issues/8873#issuecomment-146185652
+ipython kernel install --display-name py3 --name py3
 ```
 
 ### Fancy unnecessary stuff
