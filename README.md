@@ -12,7 +12,7 @@ If you have any suggestions, edits, or corrections, please open an issue or let 
 cd ~/Downloads
 wget https://repo.continuum.io/miniconda/Miniconda3-latest-MacOSX-x86_64.sh
 bash Miniconda3-latest-MacOSX-x86_64.sh
-# go through the licensing 
+# go through the licensing and accept the defaults
 source ~/.bashrc
 ```
 
@@ -44,12 +44,12 @@ tqdm'
 conda create -q --name py2 python=2 $packages
 # Only including r in py3 because conda install r and py2 don't work.
 # If you need it, force
-conda create -q --name py3 --channel r r r-irkernel r-recommended r-essentials rpy2 python=3 $packages -y
+conda create --name insightpy3 --channel r r r-irkernel r-recommended r-essentials rpy2 python=3 $packages -y
 
-source activate py3
+source activate insightpy3
 # Install the matplotlib style library
 # https://github.com/ipython/ipython/issues/8873#issuecomment-146185652
-ipython kernel install --display-name py3 --name py3
+ipython kernel install --display-name insightpy3 --name insightpy3
 ```
 
 ### Fancy unnecessary stuff
@@ -71,3 +71,7 @@ minimalnb () {
 } 
 ```
 
+```
+jupyter nbextension enable --py --sys-prefix widgetsnbextension
+ipython kernel install --display-name insightpy3 --name insightpy3
+```
