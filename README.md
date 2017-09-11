@@ -14,64 +14,23 @@ wget https://repo.continuum.io/miniconda/Miniconda3-latest-MacOSX-x86_64.sh
 bash Miniconda3-latest-MacOSX-x86_64.sh
 # go through the licensing and accept the defaults
 source ~/.bashrc
+conda update conda
 ```
 
 ### Create a few conda environments
 
 ```bash
 
-conda update conda
-# This adds the conda-forge channel below the defaults library
-conda config --append channels conda-forge
+conda install anaconda-client
+conda env create jbwhitmore/insightpy
+source activate insightpy
+ipython kernel install --display-name insightpy --name insightpy
 
-packages='jupyter
-notebook
-ipywidgets
-jupyter_contrib_nbextensions
-pyparsing
-matplotlib
-mkl
-mpld3
-seaborn
-pip
-pandas
-scikit-learn
-scipy
-numpy
-statsmodels
-tqdm'
+# Run to get a notebook
+jupyter notebook --NotebookApp.iopub_data_rate_limit=10000000
 
-conda create -q --name py2 python=2 $packages
-# Only including r in py3 because conda install r and py2 don't work.
-# If you need it, force
-conda create --name insightpy3 --channel r r r-irkernel r-recommended r-essentials rpy2 python=3 $packages -y
-
-source activate insightpy3
-# Install the matplotlib style library
-# https://github.com/ipython/ipython/issues/8873#issuecomment-146185652
-ipython kernel install --display-name insightpy3 --name insightpy3
-```
-
-### Fancy unnecessary stuff
-
-Add this (modify it first) to your `.bashrc`
-
-```bash
-export initials='jbw'
-
-minimalnb () {
-    # Usage: minimalnb [exploratory_data_analysis]
-    # Will download the most up-to-date minimal notebook named with:
-    # today's date, your initials, and [an optional phrase].
-    # The example would yield a file in the current directory named: 
-    # 2016-08-17_jbw_exploratory_data_analysis.ipynb
-    curl -H 'Accept: application/vnd.github.v3.raw' -L \
-    https://api.github.com/repos/jbwhit/jupyter-tips-and-tricks/contents/templates/minimal.ipynb \
-    -o `date +%Y-%m-%d`_${initials}_$1.ipynb
-} 
-```
+# Run to get lab
+jupyter lab --NotebookApp.iopub_data_rate_limit=10000000
 
 ```
-jupyter nbextension enable --py --sys-prefix widgetsnbextension
-ipython kernel install --display-name insightpy3 --name insightpy3
-```
+
