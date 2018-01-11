@@ -17,15 +17,61 @@ source ~/.bashrc
 conda update conda
 ```
 
-### Create a few conda environments
+### Create a new conda environments
+
+The following commands are how I set up both my conda config and the enviroments that I use. 
+
+Add conda-forge to your automatic channels, and the second line makes it so that you don't have to confirm that you want to install when you do things like `conda install numpy`.
 
 ```bash
+conda config --add channels conda-forge
+conda config --set always_yes yes
+```
 
-conda install anaconda-client
-conda env create jbwhitmore/insightpy
-source activate insightpy
-ipython kernel install --display-name insightpy --name insightpy
 
+```bash
+packages='jupyter
+notebook
+jupyterlab
+jupyter_contrib_nbextensions
+anaconda-client
+ipywidgets
+pyparsing
+matplotlib
+mkl
+mpld3
+seaborn
+pip
+pandas
+scikit-learn
+scipy
+numpy
+statsmodels
+bqplot
+pivottablejs
+ipython-sql
+ipyvolume'
+
+conda create -n insightpy3 python=3 $packages
+source activate insightpy3
+
+# qgrid is currently on a tim_shawver's channel so get like so: 
+conda install -c tim_shawver qgrid
+
+# lets the notebook extension (like ToC2) be enabled.
+jupyter nbextension enable --py --sys-prefix widgetsnbextension
+
+# This sets the name of the kernel that you want to select from the Kernel menu
+python -m ipykernel install --user --name insightpy3 --display-name "Insight Py3"
+
+
+```
+
+### Troubleshooting
+
+If you see an error message that says something about the iopub_data_rate_limit when you're trying to plot, try starting the notebook/lab with the following modified commands:
+
+```bash
 # Run to get a notebook
 jupyter notebook --NotebookApp.iopub_data_rate_limit=10000000
 
