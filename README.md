@@ -70,7 +70,7 @@ which pip
 # $ which pip
 # /Users/username/miniconda3/envs/dspy3/bin/pip
 
-pip install pyhive[presto] sql_magic
+pip install pyhive[presto] sql_magic SQLAlchemy
 
 # lets the notebook extension (like ToC2) be enabled.
 jupyter nbextension enable --py --sys-prefix widgetsnbextension
