@@ -28,8 +28,14 @@ conda config --add channels conda-forge
 conda config --set always_yes yes
 ```
 
+This following block is bash -- I recommend pasting in the commands one at a time to see what's happening.
 
 ```bash
+
+# set the environment name here
+
+envname='dspy3'
+
 packages='jupyter
 notebook
 jupyterlab
@@ -40,7 +46,9 @@ pyparsing
 matplotlib
 mkl
 mpld3
+qgrid
 seaborn
+pillow
 pip
 pandas
 scikit-learn
@@ -49,21 +57,26 @@ numpy
 statsmodels
 bqplot
 pivottablejs
-ipython-sql
+yapf
 ipyvolume'
 
-conda create -n insightpy3 python=3 $packages
-source activate insightpy3
+conda create -n $envname python=3 $packages
+source activate $envname
 
-# qgrid is currently on a tim_shawver's channel so get like so: 
-conda install -c tim_shawver qgrid
+# Pause here, double check that this pip is the correct one
+which pip
+
+# the correct one will say something like... 
+# $ which pip
+# /Users/username/miniconda3/envs/dspy3/bin/pip
+
+pip install pyhive[presto] sql_magic
 
 # lets the notebook extension (like ToC2) be enabled.
 jupyter nbextension enable --py --sys-prefix widgetsnbextension
 
 # This sets the name of the kernel that you want to select from the Kernel menu
-python -m ipykernel install --user --name insightpy3 --display-name "Insight Py3"
-
+python -m ipykernel install --user --name $envname --display-name "$envname"
 
 ```
 
