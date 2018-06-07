@@ -36,29 +36,35 @@ This following block is bash -- I recommend pasting in the commands one at a tim
 
 envname='dspy3'
 
-packages='jupyter
-notebook
-jupyterlab
-jupyter_contrib_nbextensions
+packages='
+altair
 anaconda-client
+black
+bqplot
+ipyvolume
+ipywebrtc
 ipywidgets
-pyparsing
+jupyter
+jupyter_contrib_nbextensions
+jupyterlab
 matplotlib
 mkl
 mpld3
-qgrid
-seaborn
-pillow
-pip
+notebook
+numpy
 pandas
+pip
+pivottablejs
+pyparsing
+qgrid
 scikit-learn
 scipy
-numpy
+seaborn
 statsmodels
-bqplot
-pivottablejs
+vaex
+vega_datasets
 yapf
-ipyvolume'
+'
 
 conda create -n $envname python=3 $packages
 source activate $envname
@@ -70,7 +76,7 @@ which pip
 # $ which pip
 # /Users/username/miniconda3/envs/dspy3/bin/pip
 
-pip install pyhive[presto] sql_magic SQLAlchemy
+pip install pyhive[presto] sql_magic SQLAlchemy 
 
 # lets the notebook extension (like ToC2) be enabled.
 jupyter nbextension enable --py --sys-prefix widgetsnbextension
