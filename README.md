@@ -62,9 +62,11 @@ scipy
 seaborn
 statsmodels
 vaex
+vega
 vega_datasets
 yapf
 '
+
 
 conda create -n $envname python=3 $packages
 source activate $envname
@@ -76,10 +78,11 @@ which pip
 # $ which pip
 # /Users/username/miniconda3/envs/dspy3/bin/pip
 
-pip install pyhive[presto] sql_magic SQLAlchemy 
+python -m pip install pyhive[presto] sql_magic SQLAlchemy nbdime papermill
 
 # lets the notebook extension (like ToC2) be enabled.
-jupyter nbextension enable --py --sys-prefix widgetsnbextension
+# Might not be needed!
+# jupyter nbextension enable --py --sys-prefix widgetsnbextension
 
 # This sets the name of the kernel that you want to select from the Kernel menu
 python -m ipykernel install --user --name $envname --display-name "$envname"
@@ -99,3 +102,8 @@ jupyter lab --NotebookApp.iopub_data_rate_limit=10000000
 
 ```
 
+### Extra ideas
+
+```bash
+# jupyter labextension install bqplot
+```
