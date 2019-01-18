@@ -87,6 +87,12 @@ python -m pip install pyhive[presto] sql_magic SQLAlchemy nbdime papermill
 # This sets the name of the kernel that you want to select from the Kernel menu
 python -m ipykernel install --user --name $envname --display-name "$envname"
 
+
+# jupyterlab widgets
+# conda install -c conda-forge nodejs  
+jupyter labextension install @jupyter-widgets/jupyterlab-manager
+jupyter labextension install ipyvolume
+jupyter labextension install jupyter-threejs
 ```
 
 ### Troubleshooting
