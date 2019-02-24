@@ -64,6 +64,7 @@ statsmodels
 vaex
 vega
 vega_datasets
+xlrd
 yapf
 '
 
