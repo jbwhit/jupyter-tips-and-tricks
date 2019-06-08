@@ -69,15 +69,15 @@ yapf
 '
 
 
-conda create -n $envname python=3 $packages
-source activate $envname
+conda create -n $envname python=3.6 $packages
+conda activate $envname
 
 # Pause here, double check that this pip is the correct one
-which pip
+type pip
 
 # the correct one will say something like... 
-# $ which pip
-# /Users/username/miniconda3/envs/dspy3/bin/pip
+# $ type pip
+# pip is /Users/jonathan/miniconda3/envs/dspy3/bin/pip
 
 python -m pip install pyhive[presto] sql_magic SQLAlchemy nbdime papermill
 
@@ -94,6 +94,7 @@ python -m ipykernel install --user --name $envname --display-name "$envname"
 jupyter labextension install @jupyter-widgets/jupyterlab-manager
 jupyter labextension install ipyvolume
 jupyter labextension install jupyter-threejs
+jupyter labextension install bqplot
 ```
 
 ### Troubleshooting
@@ -110,7 +111,3 @@ jupyter lab --NotebookApp.iopub_data_rate_limit=10000000
 ```
 
 ### Extra ideas
-
-```bash
-# jupyter labextension install bqplot
-```
