@@ -115,8 +115,9 @@ jupyter lab --NotebookApp.iopub_data_rate_limit=10000000
 ### Extra ideas
 
 ```bash
-
+# create environment
 conda env export -n dspy3 -f environment.lock.yaml
+# load
 conda env update --file environment.yaml
 
 # to create new python package I did this from root directory of this repo
