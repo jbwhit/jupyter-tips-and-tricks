@@ -56,10 +56,12 @@ pandas
 pip
 pivottablejs
 pyparsing
+pyscaffold
 qgrid
 scikit-learn
 scipy
 seaborn
+sphinx
 statsmodels
 vaex
 vega
@@ -92,9 +94,9 @@ python -m ipykernel install --user --name $envname --display-name "$envname"
 # jupyterlab widgets
 # conda install -c conda-forge nodejs  
 jupyter labextension install @jupyter-widgets/jupyterlab-manager
-jupyter labextension install ipyvolume
-jupyter labextension install jupyter-threejs
-jupyter labextension install bqplot
+jupyter labextension install ipyvolume jupyter-threejs
+jupyter labextension install @jupyterlab/toc
+jupyter labextension install jupyter-threejs bqplot nbgather qgrid
 ```
 
 ### Troubleshooting
@@ -111,3 +113,14 @@ jupyter lab --NotebookApp.iopub_data_rate_limit=10000000
 ```
 
 ### Extra ideas
+
+```bash
+
+conda env export -n dspy3 -f environment.lock.yaml
+conda env update --file environment.yaml
+
+# to create new python package I did this from root directory of this repo
+putup insight
+cd insight/
+python setup.py develop
+```
