@@ -70,7 +70,6 @@ xlrd
 yapf
 '
 
-
 conda create -n $envname python=3.6 $packages
 conda activate $envname
 
@@ -94,8 +93,7 @@ python -m ipykernel install --user --name $envname --display-name "$envname"
 # jupyterlab widgets
 # conda install -c conda-forge nodejs  
 jupyter labextension install @jupyter-widgets/jupyterlab-manager
-jupyter labextension install ipyvolume jupyter-threejs
-jupyter labextension install @jupyterlab/toc
+jupyter labextension install ipyvolume jupyter-threejs @jupyterlab/toc
 jupyter labextension install jupyter-threejs bqplot nbgather qgrid
 ```
 
@@ -125,3 +123,4 @@ putup insight
 cd insight/
 python setup.py develop
 ```
+
