@@ -80,7 +80,7 @@ type pip
 # $ type pip
 # pip is /Users/jonathan/miniconda3/envs/dspy3/bin/pip
 
-python -m pip install pyhive[presto] sql_magic SQLAlchemy nbdime papermill
+python -m pip install pyhive sql_magic SQLAlchemy nbdime papermill nbdev
 
 # lets the notebook extension (like ToC2) be enabled.
 # Might not be needed!
