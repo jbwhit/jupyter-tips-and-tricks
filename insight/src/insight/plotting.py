@@ -31,8 +31,8 @@ def plot_prod_vs_hours(
     )
     ax.set_xlabel("Labor Hours Worked")
     ax.set_ylabel("Total Amt Produced")
-    x = ax.set_xlim(-9506023.213266129, 204993853.21326613)
-    y = ax.set_ylim(-51476801.43653282, 746280580.4034251)
+    x = ax.set_xlim(-9_506_023.0, 204_993_853.0)
+    y = ax.set_ylim(-51_476_801.0, 746_280_580.0)
     fig.tight_layout()
     fig.savefig(output_file)
 
