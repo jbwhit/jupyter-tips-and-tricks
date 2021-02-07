@@ -70,7 +70,7 @@ xlrd
 yapf
 '
 
-conda create -n $envname python=3.6 $packages
+conda create -n $envname python=3.8 $packages
 conda activate $envname
 
 # Pause here, double check that this pip is the correct one
